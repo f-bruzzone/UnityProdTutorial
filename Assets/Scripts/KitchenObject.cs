@@ -15,10 +15,12 @@ public class KitchenObject : MonoBehaviour
             }
 
             ClearCounter = value;
+
             if (value.HasKitchenObject())
             {
                 Debug.LogError("Counter already has kitchenObject.");
             }
+
             value.KitchenObject = this;
 
             transform.parent = value.GetKitchenObjectFollowTransform();

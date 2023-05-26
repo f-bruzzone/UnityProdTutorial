@@ -3,19 +3,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 7f;
-    [SerializeField] private GameInput _gameInput;
-    [SerializeField] private LayerMask _countersLayerMask;
-
     public static Player Instance { get; private set; }
-    public bool IsWalking { get; private set; }
+
 
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter _selectedCounter;
+        public ClearCounter SelectedCounter;
     }
 
+
+    [SerializeField] private float _moveSpeed = 7f;
+    [SerializeField] private GameInput _gameInput;
+    [SerializeField] private LayerMask _countersLayerMask;
+
+    public bool IsWalking { get; private set; }
 
     private ClearCounter _selectedCounter;
     private float _rotateSpeed = 10f;
@@ -116,7 +118,7 @@ public class Player : MonoBehaviour
     }
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
-        if (_selectedCounter)
+        if (_selectedCounter != null)
         {
             _selectedCounter.Interact();
         }
@@ -128,7 +130,7 @@ public class Player : MonoBehaviour
 
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
         {
-            _selectedCounter = _selectedCounter
+            SelectedCounter = _selectedCounter
         });
     }
 }

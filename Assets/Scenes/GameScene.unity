@@ -519,6 +519,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &523935378 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 616162929}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7211f776ffd7f8340a05bf90d6cb4188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &616162929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -534,10 +546,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
         type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 0e0e5343a7f5eca4da9d14c8b92cb039,
+        type: 2}
+    - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+        type: 3}
       propertyPath: _kitchenObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: 0e0e5343a7f5eca4da9d14c8b92cb039,
         type: 2}
+    - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+        type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 1150611092}
     - target: {fileID: 4385543718881855803, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
         type: 3}
       propertyPath: m_RootOrder
@@ -719,6 +742,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150611092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4090483797258659389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7211f776ffd7f8340a05bf90d6cb4188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1252259478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,10 +1139,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
         type: 3}
+      propertyPath: testing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+        type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 407ba5151bd12db4aa6b6219da42a2a8,
+        type: 2}
+    - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+        type: 3}
       propertyPath: _kitchenObjectSO
       value: 
       objectReference: {fileID: 11400000, guid: 407ba5151bd12db4aa6b6219da42a2a8,
         type: 2}
+    - target: {fileID: 3941681615371236468, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
+        type: 3}
+      propertyPath: secondClearCounter
+      value: 
+      objectReference: {fileID: 523935378}
     - target: {fileID: 4385543718881855803, guid: 3cd67e03bf2559f4ebb98c0f770500fc,
         type: 3}
       propertyPath: m_RootOrder

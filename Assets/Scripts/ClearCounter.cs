@@ -2,44 +2,63 @@ using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
 {
-    [SerializeField] private KitchenObjectSO _kitchenObjectSO;
-    [SerializeField] private Transform _counterTopPoint;
+
+    [SerializeField] private KitchenObjectSO kitchenObjectSO;
+    [SerializeField] private Transform counterTopPoint;
     [SerializeField] private ClearCounter secondClearCounter;
     [SerializeField] private bool testing;
 
-    public KitchenObject KitchenObject { get; set; }
+
+    private KitchenObject kitchenObject;
+
 
     private void Update()
     {
         if (testing && Input.GetKeyDown(KeyCode.T))
         {
-            if (KitchenObject != null)
+            if (kitchenObject != null)
             {
-                KitchenObject.ClearCounter = secondClearCounter;
+                kitchenObject.SetClearCounter(secondClearCounter);
             }
         }
     }
 
     public void Interact()
     {
-        if (KitchenObject == null)
+        if (kitchenObject == null)
         {
-            Transform kitchenObjectTransform = Instantiate(_kitchenObjectSO.prefab, _counterTopPoint);
-            kitchenObjectTransform.GetComponent<KitchenObject>().ClearCounter = this;
+            Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, counterTopPoint);
+            kitchenObjectTransform.GetComponent<KitchenObject>().SetClearCounter(this);
         }
         else
         {
-            Debug.Log(KitchenObject.ClearCounter);
+            Debug.Log(kitchenObject.GetClearCounter());
         }
     }
 
     public Transform GetKitchenObjectFollowTransform()
     {
-        return _counterTopPoint;
+        return counterTopPoint;
+    }
+
+    public void SetKitchenObject(KitchenObject kitchenObject)
+    {
+        this.kitchenObject = kitchenObject;
+    }
+
+    public KitchenObject GetKitchenObject()
+    {
+        return kitchenObject;
+    }
+
+    public void ClearKitchenObject()
+    {
+        kitchenObject = null;
     }
 
     public bool HasKitchenObject()
     {
-        return KitchenObject != null;
+        return kitchenObject != null;
     }
+
 }

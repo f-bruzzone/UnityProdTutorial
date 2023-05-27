@@ -1496,6 +1496,47 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 29d565899d6755c498c308de9d91712c,
         type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ec5a389e19e22f4288ee7a58b7c7e5f,
+        type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 28745f183c19746459c91ce71e71bada,
+        type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: ed361945108687946a85e5ef48a1466c,
+        type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: ed361945108687946a85e5ef48a1466c,
+        type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: ed361945108687946a85e5ef48a1466c,
+        type: 2}
+    - target: {fileID: 2554392438135291714, guid: 344b0e182fc894f42b9623302155936e,
+        type: 3}
+      propertyPath: cuttingRecipeSOArray.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: ed361945108687946a85e5ef48a1466c,
+        type: 2}
     - target: {fileID: 6979058191038042659, guid: 344b0e182fc894f42b9623302155936e,
         type: 3}
       propertyPath: m_RootOrder

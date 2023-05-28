@@ -46,6 +46,10 @@ public class PlateKitchenObject : KitchenObject
         }
     }
 
+    /// <summary>
+    /// returns list of ingredients on plate
+    /// </summary>
+    /// <returns></returns>
     public List<KitchenObjectSO> GetKitchenObjectSOList()
     {
         return kitchenObjectSOList;

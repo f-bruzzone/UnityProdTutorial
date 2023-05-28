@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private KitchenObject kitchenObject;
     private BaseCounter _selectedCounter;
-    private float _rotateSpeed = 10f;
+    private float _rotateSpeed = 12f;
     private Vector3 _lastInteractDirection;
 
     private void Awake()
@@ -41,18 +41,18 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         _gameInput.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
 
+    private void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
         if (_selectedCounter != null)
         {
             _selectedCounter.InteractAlternate(this);
         }
-    }
-
-    private void Update()
-    {
-        HandleMovement();
-        HandleInteractions();
     }
 
     private void HandleInteractions()

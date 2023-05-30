@@ -13,8 +13,10 @@ public class GameManager : MonoBehaviour
     }
 
     public event EventHandler OnStateChanged;
+    public event EventHandler OnGamePaused;
 
 
+    public bool IsGamePaused { get; private set; }
     private State state;
     private float waitingToStartTimer = 0.5f;
     private float countdownToStartTimer = 3f;
@@ -24,8 +26,15 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        IsGamePaused = false;
         state = State.WaitingToStart;
     }
+
+    private void Start()
+    {
+        GameInput.Instance.OnPauseAction += GameInput_OnPauseAction;
+    }
+
 
     private void Update()
     {
@@ -64,14 +73,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsgamePlaying()
+    private void GameInput_OnPauseAction(object sender, EventArgs e)
     {
-        return state == State.GamePlaying;
+        TogglePauseGame();
     }
 
     public bool IsCountdownToStartActive()
     {
         return state == State.CountdownToStart;
+    }
+
+    public bool IsgamePlaying()
+    {
+        return state == State.GamePlaying;
     }
 
     public float GetCountdownToStartTimer()
@@ -87,5 +101,14 @@ public class GameManager : MonoBehaviour
     public float GetGamePlayingTimerNormalized()
     {
         return gamePlayingTimer / gamePlayingTimerMax;
+    }
+
+    public void TogglePauseGame()
+    {
+        // Time.timeScale changes the Time.deltaTime multiplication factor for ALL implementations of Time.deltaTime
+        // AKA will stop those instances if set to 0.
+        IsGamePaused = !IsGamePaused;
+        OnGamePaused?.Invoke(this, EventArgs.Empty);
+        Time.timeScale = IsGamePaused ? 0f : 1f;
     }
 }

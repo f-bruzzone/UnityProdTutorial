@@ -6,9 +6,14 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioRefsSO audioRefsSO;
 
+    private float volume = 0.5f;
+    private const string PLAYER_PREFS_SOUND_EFFECTS_VOLUME = "SoundEffectsVolume";
+
     private void Awake()
     {
         Instance = this;
+
+        volume = PlayerPrefs.GetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, 0.5f);
     }
 
     private void Start()
@@ -56,13 +61,25 @@ public class SoundManager : MonoBehaviour
         PlaySound(audioRefsSO.deliveryFail, deliveryCounter.transform.position);
     }
 
-    private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
+    private void PlaySound(AudioClip[] audioClipArray, Vector3 position, float volumeMultiplier = 1f)
     {
-        AudioSource.PlayClipAtPoint(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volume);
+        AudioSource.PlayClipAtPoint(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volumeMultiplier * volume);
     }
 
     public void PlayFootStepSound(Vector3 position, float volume)
     {
         PlaySound(audioRefsSO.footstep, position, volume);
     }
+
+    public void ChangeVolume()
+    {
+        volume += .1f;
+        volume = volume % 1.1f;
+
+        // Player prefs will save data between sessions. In this case sound volume.
+        PlayerPrefs.SetFloat(PLAYER_PREFS_SOUND_EFFECTS_VOLUME, volume);
+        PlayerPrefs.Save();
+    }
+
+    public float GetVolume() { return volume; }
 }

@@ -13,12 +13,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         public BaseCounter SelectedCounter;
     }
 
-
+    #region Serializables
     [SerializeField] private float _moveSpeed = 7f;
     [SerializeField] private GameInput _gameInput;
     [SerializeField] private LayerMask _countersLayerMask;
     [SerializeField] private Transform kitchenObjectHoldPoint;
-
+    #endregion
 
     public bool IsWalking { get; private set; }
 

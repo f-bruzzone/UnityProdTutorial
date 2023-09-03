@@ -5,6 +5,15 @@ public class GameStartCountdownUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI countdownText;
 
+    private Animator animator;
+    private int previousCountDownNumber;
+
+    private const string NUMBER_POPUP = "NumberPopup";
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -13,7 +22,15 @@ public class GameStartCountdownUI : MonoBehaviour
 
     private void Update()
     {
-        countdownText.text = Mathf.Ceil(GameManager.Instance.GetCountdownToStartTimer()).ToString();
+        int countDownNumber = Mathf.CeilToInt(GameManager.Instance.GetCountdownToStartTimer());
+        countdownText.text = countDownNumber.ToString();
+
+        if (previousCountDownNumber != countDownNumber && GameManager.Instance.IsCountdownToStartActive())
+        {
+            previousCountDownNumber = countDownNumber;
+            animator.SetTrigger(NUMBER_POPUP);
+            SoundManager.Instance.PlayCountdownSound();
+        }
     }
 
     private void GameManager_OnStateChanged(object sender, System.EventArgs e)
